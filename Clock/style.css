@@ -1,0 +1,95 @@
+/* This is the general style for all */
+*, *::after, *::before {
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* This will center the clock right at the middle of the page */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+/* This is the dimenesion and styling for the clock. border-radius 50% will make it a circle */
+.clock {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    border: 10px solid white;
+    position: relative;
+}
+/* This is the styling for the 12 numbers. We want the numbers to be position relative to the clock so we need to make the position of number absolute to the clock's relative position */
+.clock .number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    --rotation: 0;
+    transform: rotate(var(--rotation));
+    /* this will make all the numbers stocked to the center of top and we want to rotate with number throughout the circle */
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+/* Each number inside the clock will rotate 30 degree increment, number 12 is already in position */
+.clock .number1 {--rotation: 30deg;}
+.clock .number2 {--rotation: 60deg;}
+.clock .number3 {--rotation: 90deg;}
+.clock .number4 {--rotation: 120deg;}
+.clock .number5 {--rotation: 150deg;}
+.clock .number6 {--rotation: 180deg;}
+.clock .number7 {--rotation: 210deg;}
+.clock .number8 {--rotation: 240deg;}
+.clock .number9 {--rotation: 270deg;}
+.clock .number10 {--rotation: 300deg;}
+.clock .number11 {--rotation: 330deg;}
+
+.clock .hand {
+    --rotation: 0;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    background-color: black;
+    border: 1px solid white;
+    /* this will make the tip of the hands rounded */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    /* point of rotation is from the bottom of the hands */
+    transform-origin: bottom;
+    /* this will ensure hands are always on top */
+    z-index: 10;
+    /* this will centering to the middle of the hands instead of centering to the left side of the hands and make them rotate 1 degree each time  */
+    transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+}
+/* This is the styling for the connection dot of all hands */
+.clock::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    z-index: 11;
+    width: 15px;
+    height: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+/* This is the styling for the second hand */
+.clock .hand.second {
+    width: 5px;
+    height: 45%;
+    background-color: red;
+}
+/* This is the styling for the minute hand */
+.clock .hand.minute {
+    width: 7px;
+    height: 40%;
+    background-color: black;
+}
+/* This is the styling for the hour hand */
+.clock .hand.hour {
+    width: 10px;
+    height: 35%;
+    background-color: black;
+}
