@@ -1,0 +1,29 @@
+<!-- this will use the style from partials/header -->
+<%- include('partials/header') %>
+
+<!-- "Cover" template from bootstrap -->
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="container">
+      <div class="masthead clearfix">
+        <div class="container inner">
+          <h3 class="masthead-brand">Inspirational Quote</h3>
+        </div>
+      </div>
+      <div class="inner cover">
+        <!-- this will generate the random quote and the author of the random quote -->
+        <h1 class="cover-heading"><%= text %></h1>
+        <p class="lead"><%= author %></p>
+        <!-- this will allow us to get another quote on the same page without going back to get another quote -->
+        <form method="get" action="/quote">
+          <button class="btn btn-lg btn-secondary btn-info">
+            Get Another Inspiration
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- this will use the style from partials/footer -->
+<%- include('partials/footer') %>

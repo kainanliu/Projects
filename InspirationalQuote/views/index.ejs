@@ -1,0 +1,29 @@
+<!-- this will use the style from partials/header -->
+<%- include('partials/header') %>
+
+<!-- "Cover" template from bootstrap -->
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="container">
+      <div class="masthead clearfix">
+        <div class="container inner">
+          <h3 class="masthead-brand">Inspirational Quote</h3>
+        </div>
+      </div>
+      <div class="inner cover">
+        <h1 class="cover-heading">Generate a quote</h1>
+        <p class="lead">Click the button to be inspired</p>
+        <!-- using the get method with /quote route -->
+        <form method="get" action="/quote">
+          <!-- adding button to click for quotes -->
+          <button class="btn btn-lg btn-secondary btn-info">
+            Get Inspired
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- this will use the style from partials/footer -->
+<%- include('partials/footer') %>
