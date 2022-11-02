@@ -1,9 +1,55 @@
-<form method="get" action="dollar">
-    <button>Show Price in Dollar</button>
-</form>
-<form method="get" action="pound">
-    <button>Show Price in Pound</button>
-</form>
-<form method="get" action="eur">
-    <button>Show Price in Eur</button>
-</form>
+<!-- this will use the style from partials/header -->
+<%- include('partials/header') %>
+
+<!-- "Cover" template from bootstrap -->
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner"></div>
+      </div>
+
+      <div class="inner cover">
+        <h1 class="cover-heading">Bitcoin Price Checker</h1>
+        <p class="lead">
+          Click on the button to check the Bitcoin price in the currency of your
+          interest. This data was produced from the CoinDesk Bitcoin Price Index
+          (USD). Non-USD currency data converted using hourly conversion rate
+          from openexchangerates.org
+        </p>
+        <div class="flexbox-container">
+          <div class="form-btn">
+            <!-- using the get method with /dollar route -->
+            <form method="get" action="dollar">
+              <!-- adding button to click for price in dollar -->
+              <button class="btn btn-lg btn-secondary">
+                Show Price in Dollar
+              </button>
+            </form>
+          </div>
+          <div class="form-btn">
+            <!-- using the get method with /pound route -->
+            <form method="get" action="pound">
+              <!-- adding button to click for price in pound -->
+              <button class="btn btn-lg btn-secondary">
+                Show Price in Pound
+              </button>
+            </form>
+          </div>
+          <div class="form-btn">
+            <!-- using the get method with /eur route -->
+            <form method="get" action="eur">
+              <!-- adding button to click for price in eur -->
+              <button class="btn btn-lg btn-secondary">
+                Show Price in Eur
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- this will use the style from partials/footer -->
+<%- include('partials/footer') %>
