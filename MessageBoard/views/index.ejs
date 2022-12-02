@@ -2,4 +2,12 @@
 
 <h1>Home Page</h1>
 
+<% posts.forEach(thread => { %>
+    <%= thread.topic %>
+    <%= thread.message %>
+    <%= thread.name %>
+    <!-- you can use any names for 'thread' as long as they are all the same name -->
+    <!-- you can do cat => {cat.topic cat.message cat.name} it will work but dog => {cat.topic etc} will not work -->
+<% }) %>
+
 <%- include('partials/footer') %>
