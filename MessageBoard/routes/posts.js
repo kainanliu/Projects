@@ -13,5 +13,9 @@ router.get('/', (req, res) =>{
 });
 //This will render index.ejs
 
+router.get('/new', (req, res) => {
+    res.render('new');
+});
+
 module.exports = router;
 //The module.exports is going to let us read this file when we require it in the index.js
