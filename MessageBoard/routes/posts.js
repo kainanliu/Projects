@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 //When we use a different route that is not in the index.js file, we need router() method to help us create separate route
+const Post = require('./../models/post');
 
 router.get('/', (req, res) =>{
     const threads = [{
