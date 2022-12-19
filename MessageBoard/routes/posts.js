@@ -15,8 +15,31 @@ router.get('/', (req, res) =>{
 //This will render index.ejs
 
 router.get('/new', (req, res) => {
-    res.render('new');
+    let post = {topic: '', message: '', name: ''}
+    res.render('new', {post: post});
 });
+
+router.get('/:id', (req, res) => {
+    res.send('It works!');
+});
+
+router.post('/', (req, res) => {
+    let thePost = new Post ({
+        topic: req.body.topic,
+        message: req.body.message,
+        name: req.body.name
+    });
+    thePost.save((error, post) => {
+        if(error) {
+            console.log(error);
+            res.render('new', {post: thePost});
+        } else {
+            console.log(post);
+            res.redirect(`/posts/${post._id}`);
+        }
+    });
+});
+
 
 module.exports = router;
 //The module.exports is going to let us read this file when we require it in the index.js

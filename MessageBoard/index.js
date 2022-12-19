@@ -1,3 +1,4 @@
+const { application } = require('express');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -10,6 +11,8 @@ mongoose.connect('mongodb://localhost:27017/message_board', {useNewUrlParser: tr
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.urlencoded({extended: true}));
+//this will allow us to read from req.body
 
 app.use('/posts', postRoutes);
 //The first arguement will add posts to the end of routes.
