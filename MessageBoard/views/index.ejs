@@ -10,7 +10,7 @@
                 <!-- you can use any names for 'thread' as long as they are all the same name -->
                 <!-- you can do cat => {cat.topic cat.message cat.name} it will work but dog => {cat.topic etc} will not work -->
             <p class="card-text"><%= thread.message %></p>
-            <a href="#" class="btn btn-info">View More</a>
+            <a href="posts/<%= post._id %>" class="btn btn-info">View More</a>
         </div>
     </div>
 <% }) %>

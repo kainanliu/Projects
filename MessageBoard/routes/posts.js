@@ -4,12 +4,13 @@ const router = express.Router();
 const Post = require('./../models/post');
 
 router.get('/', (req, res) =>{
-    const threads = [{
-        topic: 'fake data',
-        message: 'I added fake data so that I can practice it',
-        name: 'Kainan'
-    }];
-    res.render('index', {posts: threads});
+    Post.find({}, (error, posts) => {
+        if(error) {
+            console.log(error);
+        } else {
+            res.render('index', {posts: posts});
+        }
+    });
     //posts(posts route): threads(const threads which is the fake data)
 });
 //This will render index.ejs
@@ -20,7 +21,15 @@ router.get('/new', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    res.send('It works!');
+    Post.findById(req.params.id, (error, post) => {
+        if(error) {
+            console.log(error);
+            res.redirect('/');
+        } else {
+            console.log(post);
+            res.render('show', {post: post})
+        }
+    });
 });
 
 router.post('/', (req, res) => {
