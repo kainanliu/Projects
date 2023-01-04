@@ -20,6 +20,17 @@ router.get('/new', (req, res) => {
     res.render('new', {post: post});
 });
 
+router.get('/edit/:id', (req, res) => {
+    Post.findById(req.params.id, (error, post) => {
+        if(error) {
+            console.log(error);
+            res.redirect('/');
+        } else {
+            res.render('edit', {post: post});
+        }
+    });
+});
+
 router.get('/:id', (req, res) => {
     Post.findById(req.params.id, (error, post) => {
         if(error) {
@@ -49,6 +60,19 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:id', (req, res) => {
+    Post.findByIdAndUpdate({_id: req.params.id}, {
+        topic: req.body.topic,
+        message: req.body.message,
+        name: req.body.name
+    }, (error, post) => {
+        if(error) {
+            console.log(error);
+        } else {
+            res.redirect(`/posts/${post._id}`);
+        }
+    });
+});
 
 module.exports = router;
 //The module.exports is going to let us read this file when we require it in the index.js
