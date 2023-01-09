@@ -1,12 +1,18 @@
-<%- include('partials/header') %> 
+<%- include('partials/header') %>
 
 <div class="card">
-    <div class="card-body">
-        <h5 class="card-title"><%= post.topic %></h5>
-        <h6 class="card-subtitle mb-2 text-muted"><%= post.name %></h6>
-        <p class="card-text"><%= post.message %></p>
-        <a href="/posts/edit/<%= post._id %>" class="card-link">Edit</a>
-    </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= post.topic %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= post.name %></h6>
+    <p class="card-text"><%= post.message %></p>
+    <a href="/posts/edit/<%= post._id %>" class="card-link">Edit</a>
+  </div>
 </div>
 
-<%- include('partials/footer') %> 
+<form action="/posts/<%= post._id %>?_method=DELETE" class="mt-4" method="POST">
+  <div class="form-group">
+    <button type="submit" class="btn btn-warning">Delete Post</button>
+  </div>
+</form>
+
+<%- include('partials/footer') %>

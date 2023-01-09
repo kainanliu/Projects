@@ -3,16 +3,14 @@
 <h1>Home Page</h1>
 
 <% posts.forEach(thread => { %>
-    <div class="card my-4">
-        <div class="card-body">
-            <h5 class="card-title"><%= thread.topic %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= thread.name %></h6>
-                <!-- you can use any names for 'thread' as long as they are all the same name -->
-                <!-- you can do cat => {cat.topic cat.message cat.name} it will work but dog => {cat.topic etc} will not work -->
-            <p class="card-text"><%= thread.message %></p>
-            <a href="posts/<%= post._id %>" class="btn btn-info">View More</a>
-        </div>
-    </div>
-<% }) %>
-
-<%- include('partials/footer') %>
+<div class="card my-4">
+  <div class="card-body">
+    <h5 class="card-title"><%= thread.topic %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= thread.name %></h6>
+    <!-- you can use any names for 'thread' as long as they are all the same name -->
+    <!-- you can do cat => {cat.topic cat.message cat.name} it will work but dog => {cat.topic etc} will not work -->
+    <p class="card-text"><%= thread.message %></p>
+    <a href="posts/<%= post._id %>" class="btn btn-info">View More</a>
+  </div>
+</div>
+<% }) %> <%- include('partials/footer') %>

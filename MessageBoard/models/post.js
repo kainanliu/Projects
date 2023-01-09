@@ -1,18 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const postSchema = new mongoose.Schema({
-    topic: {
-        type: String,
-        required: true
-    },
-    message: {
-        type: String,
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    }
+  topic: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model("Post", postSchema);
