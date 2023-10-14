@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //set an initial balance
+      let bal = 0;
+      //start infinite loop unless correct option is selected
+      while (true) {
+        let opt = +prompt(`
+            Please select an option
+            1. Deposite
+            2. Withdraw
+            3. Check Balance
+            4. Exit
+            `);
+        if (opt === 1 || opt === 2 || opt === 3 || opt === 4) {
+          if (opt === 4) {
+            break;
+          }
+          switch (opt) {
+            case 1:
+              let dep = +prompt("Please enter an amount to deposite");
+              bal += dep;
+              break;
+            case 2:
+              let wdr = +prompt("Please enter an amount to withdraw");
+              // if (bal - wdr >= 0) {
+              //     bal -= wdr
+              // } else {
+              //     alert('Insufficient fund to withdraw')
+              // }
+              bal - wdr >= 0
+                ? (bal -= wdr)
+                : alert("Insufficient fund to withdraw");
+              break;
+            case 3:
+              alert(`The remaining balance is ${bal} dollar(s)`);
+              break;
+          }
+        } else {
+          alert("Please enter 1, 2, 3, or 4 only");
+        }
+      }
+    </script>
+  </body>
+</html>
