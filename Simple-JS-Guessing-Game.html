@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Pick a number range from N to M
+        function getRandom(N, M) {
+            return Math.floor(Math.random() * (M - N + 1)) + N
+        }
+        let random = getRandom(1, 10)
+        // Give 3 guessing chances, exit after 3 tries
+        let flag = true //switch
+        for (let i = 1; i <= 3; i++) {
+            // user input
+            let num = +prompt('Plase enter a number between 1 and 10')
+            if (num > random) {
+                alert('Your guess is too big, please try again')
+            } else if (num < random) {
+                alert('Your guess is too samll, please try again')
+            } else {
+                flag = false
+                alert('You guessed the number correctly!')
+                break
+            }
+        }
+        if (flag) {
+            alert('You have used up all your tries, please refresh to restart')
+        }
+    </script>
+</body>
+</html>
