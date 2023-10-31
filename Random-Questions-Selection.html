@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin:0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .box {
+            width: 600px;
+            margin: 50px auto;
+            display: flex;
+            font-size: 25px;
+            line-height: 40px;
+        }
+
+        .qs {
+            width: 450px;
+            height: 40px;
+            color: red;
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btns button {
+            width: 120px;
+            height: 35px;
+            margin: 0 50px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Random Questions</h2>
+    <div class="box">
+        <span>Questions:</span>
+        <div class="qs">Question will be displayed here</div>
+    </div>
+    <div class="btns">
+        <button class="start">Start</button>
+        <button class="end">End</button>
+    </div>
+    <script>
+        const arr = [   'What is the tallest building in the world?', 
+                        'What is the longest bridge in the world?', 
+                        'Who invented JavaScript?', 
+                        'When did world wide web go online?', 
+                        'What is the largest animal in the world?'
+                    ]
+
+        //get elements
+        const qs = document.querySelector('.qs')
+        const start = document.querySelector('.start')
+        const end = document.querySelector('.end')
+
+        // set global
+        let timerId = 0
+        let random = 0
+
+        // start
+        start.addEventListener('click', function() {
+            timerId = setInterval(function() {
+                random = parseInt(Math.random() * arr.length)
+                qs.innerHTML = arr[random]
+            }, 35)
+            if (arr.length === 1) {
+                start.disabled = end.disabled = true
+            }
+        })
+
+        // end
+        end.addEventListener('click', function() {
+            clearInterval(timerId)
+            arr.splice(random, 1)
+            console.log(arr)
+        })
+    </script>
+
+</body>
+</html>
